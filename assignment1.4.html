@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+</head>
+<body>
+
+<h2>Scientific Calculator</h2>
+
+Number: <input type="text" id="num"><br><br>
+
+
+<button onclick="square()">x²</button>
+<button onclick="sqrt()">√x</button>
+<button onclick="log()">log</button>
+<button onclick="sin()">sin</button>
+<button onclick="cos()">cos</button>
+<button onclick="tan()">tan</button>
+
+<br><br>
+<span id="error" style="color:red"></span><br>
+<span id="result"></span>
+
+<script>
+function square() {
+    let n = parseFloat(document.getElementById("num").value);
+    if (isNaN(n)) { document.getElementById("error").innerHTML = "Enter a number!"; return; }
+    document.getElementById("result").innerHTML = "Square: " + (n * n);
+    document.getElementById("error").innerHTML = "";
+}
+
+function sqrt() {
+    let n = parseFloat(document.getElementById("num").value);
+    if (isNaN(n)) { document.getElementById("error").innerHTML = "Enter a number!"; return; }
+    if (n < 0) { document.getElementById("error").innerHTML = "Cannot take sqrt of negative number!"; return; }
+    document.getElementById("result").innerHTML = "Square Root: " + Math.sqrt(n);
+    document.getElementById("error").innerHTML = "";
+}
+
+function log() {
+    let n = parseFloat(document.getElementById("num").value);
+    if (isNaN(n)) { document.getElementById("error").innerHTML = "Enter a number!"; return; }
+    if (n <= 0) { document.getElementById("error").innerHTML = "Log undefined for zero or negative!"; return; }
+    document.getElementById("result").innerHTML = "Log: " + Math.log10(n);
+    document.getElementById("error").innerHTML = "";
+}
+
+function sin() {
+    let n = parseFloat(document.getElementById("num").value);
+    if (isNaN(n)) { document.getElementById("error").innerHTML = "Enter a number!"; return; }
+    document.getElementById("result").innerHTML = "sin: " + Math.sin(n * Math.PI / 180).toFixed(4);
+    document.getElementById("error").innerHTML = "";
+}
+
+function cos() {
+    let n = parseFloat(document.getElementById("num").value);
+    if (isNaN(n)) { document.getElementById("error").innerHTML = "Enter a number!"; return; }
+    document.getElementById("result").innerHTML = "cos: " + Math.cos(n * Math.PI / 180).toFixed(4);
+    document.getElementById("error").innerHTML = "";
+}
+
+function tan() {
+    let n = parseFloat(document.getElementById("num").value);
+    if (isNaN(n)) { document.getElementById("error").innerHTML = "Enter a number!"; return; }
+    let rad = n * Math.PI / 180;
+    if (Math.cos(rad).toFixed(4) == 0) { document.getElementById("error").innerHTML = "tan undefined!"; return; }
+    document.getElementById("result").innerHTML = "tan: " + Math.tan(rad).toFixed(4);
+    document.getElementById("error").innerHTML = "";
+}
+</script>
+
+</body>
+</html>

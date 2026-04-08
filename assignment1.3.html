@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+<h3>Basic Calculator</h3>
+
+<input type="text" id="n1">
+<input type="text" id="n2"><br><br>
+
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">*</button>
+<button onclick="calc('/')">/</button>
+
+<p id="result"></p>
+
+<script>
+function calc(op) {
+    let a = document.getElementById("n1").value;
+    let b = document.getElementById("n2").value;
+
+    if (a === "" || b === "") {
+        document.getElementById("result").innerHTML =
+            "<span class='error'>Enter both values</span>";
+        return;
+    }
+
+    a = Number(a);
+    b = Number(b);
+    let r;
+
+    if (op === '+') r = a + b;
+    if (op === '-') r = a - b;
+    if (op === '*') r = a * b;
+    if (op === '/') r = a / b;
+
+    document.getElementById("result").innerHTML = "Result = " + r;
+}
+</script>
+
+</body>
+</html>

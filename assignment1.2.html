@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Empty Boxes & Sum</title>
+</head>
+<body>
+
+Enter 1st Number:
+<input type="text" id="t1" onblur="add()">
+
+Enter 2nd Number:
+<input type="text" id="t2" onblur="add()">
+
+<br><br>
+
+<span id="s1" style="color:red;"></span>
+<br>
+<span id="sum" ></span>
+
+<script>
+function add() {
+    let t1 = document.getElementById("t1").value;
+    let t2 = document.getElementById("t2").value;
+    let message = "";
+    let sumSpan = document.getElementById("sum");
+
+    
+    if (t1 === "") {
+        message = "Enter 1st value";
+        sumSpan.innerHTML = ""; 
+    } else if (t2 === "") {
+        message = "Enter 2nd value";
+        sumSpan.innerHTML = ""; 
+    } else {
+        
+        let sum = parseFloat(t1) + parseFloat(t2);
+        sumSpan.innerHTML = "Sum: " + sum;
+    }
+
+    document.getElementById("s1").innerHTML = message;
+}
+</script>
+
+</body>
+</html>
